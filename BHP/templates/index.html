@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BHP</title>
+    <link rel="stylesheet" href="{% static "style.css" %}" />
+  </head>
+  <body>
+    <h1>Bangalore House Price Predictor</h1>
+    <form action="{% url 'estimate_price' %}" method="POST">
+      {% csrf_token %}
+      <div>
+        <label for="area">Area (Square feet) : </label>
+        <input type="text" name="area" value="1000" required />
+      </div>
+      <div>
+        <label for="bhk">BHK : </label>
+        <input type="radio" name="bhk" value="1" checked /> 1
+        <input type="radio" name="bhk" value="2" /> 2
+        <input type="radio" name="bhk" value="3" /> 3
+        <input type="radio" name="bhk" value="4" /> 4
+        <input type="radio" name="bhk" value="5" /> 5
+      </div>
+      <div>
+        <label for="bath">Bathrooms : </label>
+        <input type="radio" name="bath" value="1" checked /> 1
+        <input type="radio" name="bath" value="2" /> 2
+        <input type="radio" name="bath" value="3" /> 3
+        <input type="radio" name="bath" value="4" /> 4
+        <input type="radio" name="bath" value="5" /> 5
+      </div>
+      <div>
+        <label for="location">Location : </label>
+        <select name="location" id="location">
+          <option value="">Choose a location</option>
+          {% for loc in locations %}
+          <option value="{{loc}}">{{loc}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <button type="submit">Estimate Price</button>
+      </div>
+    </form>
+    <h3>Result: {{ result }} lacs</h3>
+  </body>
+</html>
