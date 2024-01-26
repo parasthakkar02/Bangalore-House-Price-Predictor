@@ -12,6 +12,8 @@ Bangalore House Price Predictor is a project that leverages machine learning tec
 
 The machine learning model involves extensive data preprocessing, model training, and validation. It is trained using regression techniques and the dataset was sourced from Kaggle, specific to Bangalore city. The trained model is then utilized in the Django web application for real-time price predictions.
 
+You can find the model here: https://github.com/parasthakkar02/Real-Estate-Price-Prediction
+
 ## Django Web Application
 
 The Django web application provides an intuitive interface for users to input property details and receive house price estimates as result. The application seamlessly integrates with the machine learning model, ensuring a smooth user experience.
